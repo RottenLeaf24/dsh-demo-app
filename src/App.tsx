@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { ExpenseForm } from './components/ExpenseForm'
 import { ExpenseList } from './components/ExpenseList'
+import { ExportButton } from './components/ExportButton'
 import { Filters } from './components/Filters'
 import { Summary } from './components/Summary'
 import {
@@ -66,7 +67,10 @@ export default function App() {
           <Summary summary={summary} />
         </section>
         <section className="panel wide">
-          <h2>明细</h2>
+          <div className="panel-title">
+            <h2>明细</h2>
+            <ExportButton items={visible} month={filter.month} />
+          </div>
           <ExpenseList items={visible} onDelete={deleteExpense} />
         </section>
       </main>

@@ -65,6 +65,24 @@ body {
   font-size: 17px;
 }
 
+.panel-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* 标题行里的按钮比默认的紧凑一些，与标题的高度对齐。 */
+.panel-title button {
+  padding: 5px 12px;
+  font-size: 13px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 label {
   display: flex;
   flex-direction: column;

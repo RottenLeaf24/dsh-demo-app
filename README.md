@@ -1,6 +1,6 @@
 # 小账本
 
-一个记录日常开销的单页应用：记一笔、按月份和分类筛选、查看分类占比。数据保存在浏览器 localStorage。
+一个记录日常开销的单页应用：记一笔、按月份和分类筛选、查看分类占比、把当前明细导出为 CSV。数据保存在浏览器 localStorage。
 
 技术栈：Vite + React 19 + TypeScript，单元测试用 Vitest。
 
@@ -26,8 +26,9 @@ src/
     money.ts    金额解析与格式化（内部以「分」为单位）
     date.ts     日期工具（本地时区 YYYY-MM-DD）
     ledger.ts   记录类型、校验、筛选、排序、统计
+    csv.ts      把记录转换成 CSV 文本、导出文件名
     storage.ts  localStorage 读写
     sample.ts   首次打开时的示例数据
-  components/   React 组件：表单、筛选、统计、明细表
+  components/   React 组件：表单、筛选、统计、明细表、导出 CSV
   App.tsx       页面组装与状态
 ```
