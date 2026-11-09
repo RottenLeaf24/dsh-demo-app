@@ -14,6 +14,23 @@ describe('parseAmount', () => {
     expect(parseAmount('-1')).toBeNull()
     expect(parseAmount('1.234')).toBeNull()
   })
+
+  it('转换结果不受浮点误差影响', () => {
+    expect(parseAmount('0.29')).toBe(29)
+    expect(parseAmount('1.15')).toBe(115)
+    expect(parseAmount('1.005')).toBeNull()
+  })
+
+  it('接受末尾带 0 的小数', () => {
+    expect(parseAmount('0.10')).toBe(10)
+    expect(parseAmount('1.50')).toBe(150)
+  })
+
+  it('拒绝超出安全整数范围的金额', () => {
+    expect(parseAmount('9999999999999999')).toBeNull()
+    expect(parseAmount('1'.repeat(400))).toBeNull()
+    expect(parseAmount('99999999999999.99')).toBeNull()
+  })
 })
 
 describe('formatMoney', () => {
@@ -25,5 +42,20 @@ describe('formatMoney', () => {
 
   it('负数带负号', () => {
     expect(formatMoney(-2500)).toBe('-¥25.00')
+  })
+
+  it('小数部分不足两位时补零', () => {
+    expect(formatMoney(5)).toBe('¥0.05')
+    expect(formatMoney(-5)).toBe('-¥0.05')
+    expect(formatMoney(50)).toBe('¥0.50')
+    expect(formatMoney(100)).toBe('¥1.00')
+  })
+
+  it('对非整数分和超大数不产生乱码', () => {
+    expect(formatMoney(12.5)).toBe('¥0.00')
+    expect(formatMoney(-0.5)).toBe('¥0.00')
+    expect(formatMoney(Number.NaN)).toBe('¥0.00')
+    expect(formatMoney(Number.POSITIVE_INFINITY)).toBe('¥0.00')
+    expect(formatMoney(2 ** 60)).toBe('¥0.00')
   })
 })
