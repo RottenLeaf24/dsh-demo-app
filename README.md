@@ -12,6 +12,12 @@ npm run dev        # 本地开发，默认 http://localhost:5173
 npm run check      # 类型检查 + 单元测试 + 构建，提交前运行
 ```
 
+## 在线预览（GitHub Pages）
+
+每次向 `main` 推送（合并 PR）后，`.github/workflows/deploy-pages.yml` 会自动做类型检查、单元测试和构建，并把 `dist/` 发布到 GitHub Pages，地址为 `https://<用户名>.github.io/dsh-demo-app/`。也可以在 Actions 页面手动运行该 workflow（`workflow_dispatch`）。
+
+仓库首次使用时，需要在 GitHub 仓库的 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。仓库若为 Private，还需要账号当前套餐支持 Pages。
+
 ## 目录
 
 ```
