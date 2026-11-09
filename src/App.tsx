@@ -52,7 +52,7 @@ export default function App() {
           <h1>小账本</h1>
           <p>记录每一笔开销，按月份和分类查看钱花在了哪里。</p>
         </div>
-        <button type="button" className="secondary" onClick={resetSample}>
+        <button type="button" className="success" onClick={resetSample}>
           重置示例数据
         </button>
       </header>
