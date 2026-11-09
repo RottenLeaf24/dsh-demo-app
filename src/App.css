@@ -5,6 +5,7 @@
   --muted: #6b7280;
   --border: #e5e7eb;
   --primary: #2563eb;
+  --success: #16a34a;
   --danger: #dc2626;
   font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   color: var(--text);
@@ -117,6 +118,12 @@ button.secondary {
   background: #fff;
   color: var(--text);
   border: 1px solid var(--border);
+}
+
+/* 绿色按钮：用于导出这类「主要但不常见」的操作。 */
+button.success {
+  background: var(--success);
+  color: #fff;
 }
 
 button.link {

@@ -23,7 +23,7 @@ export function ExportButton({ items, month }: Props) {
   }
 
   return (
-    <button type="button" className="secondary" disabled={items.length === 0} onClick={exportCsv}>
+    <button type="button" className="success" disabled={items.length === 0} onClick={exportCsv}>
       导出 CSV
     </button>
   )
